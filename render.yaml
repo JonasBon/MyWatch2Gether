@@ -1,0 +1,16 @@
+# Blueprint für Render.com (kostenloser Web-Service)
+services:
+  - type: web
+    name: couchkino
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: SOUNDCLOUD_CLIENT_ID
+        sync: false
+      - key: SOUNDCLOUD_CLIENT_SECRET
+        sync: false
